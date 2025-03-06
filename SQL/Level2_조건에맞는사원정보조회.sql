@@ -1,0 +1,16 @@
+'''
+< 2022년도 평가 점수가 가장 높은 사원들의 점수, 사번, 성명, 직책, 이메일 조회>
+- 평가 점수가 가장 높은 사원 정보를 출력
+'''
+
+SELECT SUM(G.SCORE) SCORE, G.EMP_NO, EMP.EMP_NAME, EMP.POSITION, EMP.EMAIL
+FROM HR_EMPLOYEES EMP, HR_GRADE G
+WHERE EMP.EMP_NO = G.EMP_NO
+GROUP BY EMP_NO
+ORDER BY 1 DESC
+LIMIT 1;  -- 가장 높은 사원 하나 출력 LIMIT 기억하기!
+
+# SELECT SUM(SCORE), EMP_NO
+# FROM HR_GRADE
+# GROUP BY EMP_NO
+# ORDER BY 1 DESC;

@@ -1,0 +1,10 @@
+'''
+<ROOT 아이템을 찾아 아이템 ID(ITEM_ID), 아이템 명(ITEM_NAME) 출력>
+- 아이템 ID를 기준으로 오름차순 정렬
+- ROOT 아이템의 PARENT 아이템 ID는 NULL
+
+'''
+SELECT I.ITEM_ID, I.ITEM_NAME
+FROM ITEM_INFO I, ITEM_TREE T
+WHERE I.ITEM_ID = T.ITEM_ID AND T.PARENT_ITEM_ID IS NULL
+ORDER BY 1;
